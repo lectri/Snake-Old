@@ -1,7 +1,18 @@
 import pyglet
-import window 
+from main_window import Window
+from game import Game
 
-if __name__ == "__main__":
-    window = window.Window()
-    pyglet.app.run()
+w = Window()
+g = Game()
+
+
+# Handles game events (drawing, keyboard presses, etc.)
+@w.mainWindow.event
+def on_draw():
+    w.mainWindow.clear()
+    g.snake.draw()
+    g.scoreLabel.draw()
+
+
+pyglet.app.run()
     
