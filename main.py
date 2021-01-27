@@ -1,18 +1,22 @@
 import pyglet
+from pyglet.window import key
 from main_window import Window
-from game import Game
+from game import Game, Snake
 
-w = Window()
-g = Game()
 
+window = Window()
+game = Game()
+snake = Snake()
 
 # Handles game events (drawing, keyboard presses, etc.)
-@w.mainWindow.event
+@window.instance.event
 def on_draw():
-    w.mainWindow.clear()
-    g.snake.draw()
-    g.scoreLabel.draw()
+    window.instance.clear()
+    snake.body.draw()
+    game.scoreLabel.draw()
+
+def on_key_press(symbol, modifiers):
+    pass
 
 
 pyglet.app.run()
-    
