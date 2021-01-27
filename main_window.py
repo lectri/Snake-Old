@@ -10,15 +10,12 @@ class Window:
         self.centerWidth = self.center[0]
         self.centerHeight = self.center[1]
         self.caption = "Snake"
-
+        
         # Window is created
-        self.mainWindow = pyglet.window.Window(self.width, self.height, caption=self.caption)
-    
-
-
-
+        self.instance = pyglet.window.Window(self.width, self.height, caption=self.caption)
 
         
+
 
 
 
