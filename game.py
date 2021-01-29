@@ -3,42 +3,41 @@ from main_window import Window
 from pyglet import shapes
 
 
-class Game(Window):
-    def __init__(self):
-        # Gives me all the stuff from the Window class
-        super(Window,self).__init__()
-        # The snake square itself
-        
-        self.score = 0
-        self.spriteBatch = pyglet.graphics.Batch()
-        self.scoreLabel = pyglet.text.Label(
-            f"Score:{self.score}",
-            font_name="Arial",
-            font_size=20,
-            x=0,y=0
-        )
-
-
-class Snake(Game):
+class Snake(Window):
     def __init__(self):
         super().__init__()
         
-        self.body = shapes.Rectangle(x=200,y=200, width=25,height=25, color=(0,255,0), batch=self.spriteBatch)
-        self.body.anchor_x = self.body.x // 2
-        self.body.anchor_y = self.body.y // 2
-    
+        self.sprite = shapes.Rectangle(x=200,y=200, width=25,height=25, color=(0,255,0), batch=self.spriteBatch)
+        self.sprite.anchor_x = self.sprite.x // 2
+        self.sprite.anchor_y = self.sprite.y // 2
+
+    def move(self, dt):
+        self.sprite.x += 5
     def turn(self):
         pass
 
     def grow(self):
-        self.body.width += 5
+        self.body.width += 10
+
+    def checks(self, dt):
+        if self.sprite.x > self.height:
+            self.sprite.x = 0
 
 
-class Apple:
-    pass
+class Apple(Window):
+    def __init__(self):
+        super().__init__()
+
+        self.sprite = shapes.Rectangle(x=500, y=500, width=25, height=25, color=(255,0,0), batch=self.spriteBatch)
+        self.sprite.anchor_x = self.sprite.x // 2
+        self.sprite.anchor_y = self.sprite.y // 2
 
 
-            
+class Checks(Snake):
+    def out_of_bounds(self, dt):
+        if self.sprite.x > self.width:
+            self.sprite.x = -10
+
         
 
         
