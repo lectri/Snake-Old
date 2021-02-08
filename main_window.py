@@ -18,8 +18,7 @@ class Window:
             f"Score:{self.score}",
             font_name="Arial",
             font_size=20,
-            x=0,y=0
-        )
+            x=0,y=0)
         
         # Window is created
         self.instance = pyglet.window.Window(self.width, self.height, caption=self.caption)
