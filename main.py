@@ -5,17 +5,19 @@ from game import Snake, Apple, Checks
 
 # Create Instance
 window = Window()
-'''checks = Checks()'''
 snake = Snake()
 apple = Apple()
 checks = Checks()
+
+# Create Window 
+window.create_window()
 
 # Input-Dependent Events
 @window.instance.event
 def on_draw():
     window.instance.clear()
     snake.sprite.draw()
-    '''checks.scoreLabel.draw()'''
+    window.scoreLabel.draw()
 @window.instance.event
 def on_key_press(symbol, modifiers):
     pass
