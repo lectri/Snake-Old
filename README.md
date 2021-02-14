@@ -1,4 +1,4 @@
-# Snake-AI
+# Snake
 
 The repository will have to releases: a playable version, and an AI version (that will come in later). 
 The playable version is a regular game of snake that you can find by googling "Snake Game".
