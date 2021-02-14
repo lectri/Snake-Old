@@ -10,3 +10,7 @@ Up Arrow or W:    Up
 Down Arrow or S:  Down
 Left Arrow or A:  Left
 Right Arrow or D: Right
+
+CONTRIBUTING
+
+You can fork it and do your own thing, but I don't want any pull requests since this a project I'd like to do for improvement of my Python skills. Including others on this project destroys the point. It's only public so some of my friends can try it out.
