@@ -1,29 +1,41 @@
 import pyglet
+import game
 from pyglet.window import key
 from main_window import Window
-from game import Snake, Apple, Checks
+from game import Player, Apple, Checks
 
 # Create Instance
 window = Window()
-snake = Snake()
+player = Player()
 apple = Apple()
 checks = Checks()
 
-# Create Window 
+# Create Window
 window.create_window()
 
-# Input-Dependent Events
+
 @window.instance.event
 def on_draw():
     window.instance.clear()
-    snake.sprite.draw()
+    player.sprite.draw()
     window.scoreLabel.draw()
+
+
 @window.instance.event
 def on_key_press(symbol, modifiers):
-    pass
+    # Player Movement
+    if symbol == key.UP:
+        game.player_direction = "U"
+    elif symbol == key.DOWN:
+        game.player_direction = "D"
+    elif symbol == key.LEFT:
+        game.player_direction = "L"
+    elif symbol == key.RIGHT:
+        game.player_direction = "R"
 
-# Time-Dependent Events
-pyglet.clock.schedule_interval(snake.move, 1/30) 
-pyglet.clock.schedule_interval(checks.out_of_bounds, 1/30)
+
+# Events that should be ran multiple times a second
+pyglet.clock.schedule_interval_soft(player.move, 1 / 30)
+
 # Runs Code 
 pyglet.app.run()
