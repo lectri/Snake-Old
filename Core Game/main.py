@@ -1,14 +1,15 @@
 import pyglet
+import window
 import game
+import sprites
 from pyglet.window import key
-from main_window import Window
-from game import Player, Apple, Checks
+
 
 # Create Instance
-window = Window()
-player = Player()
-apple = Apple()
-checks = Checks()
+window = window.Window()
+player = sprites.Player()
+apple = sprites.Apple()
+prop = game.Properties()
 
 # Create Window
 window.create_window()
@@ -18,8 +19,7 @@ window.create_window()
 def on_draw():
     window.instance.clear()
     player.sprite.draw()
-    window.scoreLabel.draw()
-
+    prop.scoreLabel.draw()
 
 @window.instance.event
 def on_key_press(symbol, modifiers):
